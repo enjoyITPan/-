@@ -25,15 +25,15 @@
 
 ### 2.1 2PC（同步阻塞、单点问题、太过保守）
 
-<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816204604315.png" alt="image-20200816204604315" style="zoom: 40%;" /><img src="/Users/yunshu/学习笔记/分布式/img/image-20200816204755119.png" alt="image-20200816204755119" style="zoom:40%;" />
+<img src="./img/image-20200816204604315.png" alt="image-20200816204604315" style="zoom: 40%;" /><img src="./img/image-20200816204755119.png" alt="image-20200816204755119" style="zoom:40%;" />
 
-<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205141000.png" alt="image-20200816205141000" style="zoom:40%;" /><img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205219516.png" alt="image-20200816205219516" style="zoom:40%;" />
+<img src="./img/image-20200816205141000.png" alt="image-20200816205141000" style="zoom:40%;" /><img src="./img/image-20200816205219516.png" alt="image-20200816205219516" style="zoom:40%;" />
 
 ### 2.2 3PC
 
-<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205917160.png" alt="image-20200816205917160" style="zoom:40%;" /><img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205954679.png" alt="image-20200816205954679" style="zoom:40%;" />
+<img src="./img/image-20200816205917160.png" alt="image-20200816205917160" style="zoom:40%;" /><img src="./img/image-20200816205954679.png" alt="image-20200816205954679" style="zoom:40%;" />
 
-<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816210102647.png" alt="image-20200816210102647" style="zoom:50%;" />
+<img src="./img/image-20200816210102647.png" alt="image-20200816210102647" style="zoom:50%;" /> 
 
 
 
