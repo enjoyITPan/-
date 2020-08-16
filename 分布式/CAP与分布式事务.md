@@ -15,7 +15,7 @@
 
 一致性和可用性，为什么不可能同时成立？答案很简单，因为可能通信失败（即出现分区容错）。
 
-如果保证 G2 的一致性，那么 G1 必须在写操作时，锁定 G2 的读操作和写操作。只有数据同步后，才能重新开放读写。锁定期间，G2 不能读写，没有可用性不。
+如果保证 G2 的一致性，那么 G1 必须在写操作时，锁定 G2 的读操作和写操作。只有数据同步后，才能重新开放读写。锁定期间，G2 不能读写，没有可用性。
 
 如果保证 G2 的可用性，那么势必不能锁定 G2，所以一致性不成立。
 
@@ -23,15 +23,17 @@
 
 ## 二、分布式事务
 
-### 2.1 2PC
+### 2.1 2PC（同步阻塞、单点问题、太过保守）
 
-https://segmentfault.com/a/1190000004474543
+<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816204604315.png" alt="image-20200816204604315" style="zoom: 40%;" /><img src="/Users/yunshu/学习笔记/分布式/img/image-20200816204755119.png" alt="image-20200816204755119" style="zoom:40%;" />
 
-https://blog.csdn.net/bjweimengshu/article/details/86698036
-
-https://www.infoq.cn/article/g1avP9FUA6CDOYRAlv4R
+<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205141000.png" alt="image-20200816205141000" style="zoom:40%;" /><img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205219516.png" alt="image-20200816205219516" style="zoom:40%;" />
 
 ### 2.2 3PC
+
+<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205917160.png" alt="image-20200816205917160" style="zoom:40%;" /><img src="/Users/yunshu/学习笔记/分布式/img/image-20200816205954679.png" alt="image-20200816205954679" style="zoom:40%;" />
+
+<img src="/Users/yunshu/学习笔记/分布式/img/image-20200816210102647.png" alt="image-20200816210102647" style="zoom:50%;" />
 
 
 
@@ -41,9 +43,17 @@ TCC事务的处理流程与2PC两阶段提交类似，不过2PC通常都是在�
 
 而不足之处则在于对应用的侵入性非常强，业务逻辑的每个分支都需要实现try、confirm、cancel三个操作。此外，其实现难度也比较大，需要按照网络状态、系统故障等不同的失败原因实现不同的回滚策略。为了满足一致性的要求，confirm和cancel接口还必须实现幂等。
 
-##三、MySql XA
+## 三、MySql XA
 
 https://www.cnblogs.com/zhoujinyi/p/5257558.html
 
+## 四、参考资料
 
+[2pc、3pc](https://segmentfault.com/a/1190000004474543)
+
+[TCC](https://www.cnblogs.com/duanxz/p/5226316.html)
+
+[TCC](https://houbb.github.io/2018/09/02/sql-distribute-transaction-tcc)
+
+[小米分布式事务实践](https://xiaomi-info.github.io/2020/01/02/distributed-transaction/)
 

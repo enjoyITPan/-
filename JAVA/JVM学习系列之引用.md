@@ -6,6 +6,8 @@
 
 ### 三、ThreadLocal和内存泄露
 
+https://segmentfault.com/a/1190000022704085
+
 
 
 
