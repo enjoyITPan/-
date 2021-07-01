@@ -32,6 +32,7 @@
 - eq_ref
 
   在连接查询时，对于前驱表的每个数据都只有一条数据与之对应（也就是第二张表是通过唯一索引与常量等值匹配）
+  在连接查询时，如果被驱动表是通过主键或者唯一二级索引列等值匹配的方式进行访问的（如果该主键或者唯一二级索引是联合索引的话，所有的索引列都必须进行等值比较），则对该被驱动表的访问方法就是eq_ref，例如下面的查询方式：
 
   ```MYSQL
   CREATE TABLE `A` (
@@ -46,8 +47,8 @@
     PRIMARY KEY(`id`)
   )
   
-  //对于B表使用的就会是eq_ref
-  select * from A a,B b where a.id = b.id;
+  //对于B表使用的就会是eq_ref(如果A表的id值不唯一，对于B表的查询也不会是eq_ref)
+  select * from A a inner join B b on a.id = b.id;
   ```
 
 - ref
