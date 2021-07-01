@@ -1,4 +1,4 @@
-## 一、OOM（内存溢出）
+##  一、OOM（内存溢出）
 
 1、查看gc.log 看是不是频繁发生full gc
 
@@ -21,6 +21,16 @@ jmap -dump:format=b,file=heapdump.phrof pid
 ​	4.2、eclipse的MAT插件
 
 ​	4.3、zprofiler
+
+5、内存分析关键词
+
+### shallow heap
+
+比较好理解（好理解不代表好计算），直译就是浅层堆，其实就是这个对象实际占用的堆大小。
+
+### retained heap
+
+最简单的理解就是，如果这个对象被删除了（GC回收掉），能节省出多少内存，这个值就是所谓的retained heap。
 
 ## 二、CPU彪高
 

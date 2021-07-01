@@ -43,7 +43,7 @@
 ![img](img/cdn访问流程图.png)
 
 - 用户向 [www.test.com](http://www.test.com) 下的某图片资源，如 1.jpg 发起请求，先要向 Local DNS 发
-   起域名解析请求；
+   起域名解析请求；一般称运营商的DNS服务器为`local dns`
 - 当 Local DNS 解析 [www.test.com](http://www.test.com) 时，会发现已经配置了 CNAME
    [www.test.com.cdn.dnsv1.com](http://www.test.com.cdn.dnsv1.com)，解析请求会发送至 Tencent DNS（GSLB），GSLB 为腾
    讯云自主研发的调度体系，会为请求分配最佳节点 IP；

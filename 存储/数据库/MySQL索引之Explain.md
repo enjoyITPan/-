@@ -177,7 +177,7 @@ CREATE TABLE `dept_emp` (
 
   - mysql在做排序的时候，给每个线程分配一块内存用于排序，称作sort_buffer。 如果排序的数据大小小于sort_buffer的大小，则在内存中按照排序列做快速排序即可，但如果超过sort_buffer的大小，则需要借助多份磁盘临时文件，然后通过归并算法做排序。
 
-###6、possible_keys和key
+### 6、possible_keys和key
 
 - possible_keys 为null，key不为null
 

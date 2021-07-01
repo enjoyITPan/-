@@ -1,4 +1,4 @@
-##前言
+## 前言
 
 一次为了解决跨域问题，采用了CORS方法。根据[官方解释](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)，只需要在响应头里设置
 1、Access-Control-Allow-Origin
@@ -9,7 +9,7 @@
 
 ## Dispathcher处理请求的流程概览
 
-![image-20191201184710800](img/image-20191201184710800.png)
+![image-20191201184710800](https://gitee.com/nieyunshu/picture/raw/master/img/20210619174831.png)
 
 | 组件           | 说明                                                         |
 | -------------- | ------------------------------------------------------------ |
@@ -20,7 +20,7 @@
 
 ## Dispathcer的继承图
 
-<img src="img/image-20191127200505690.png" alt="image-20191127200505690" style="zoom:50%;" />
+<img src="https://gitee.com/nieyunshu/picture/raw/master/img/20210619174858.png" alt="image-20191127200505690" style="zoom:50%;" />
 
 从继承视图可以看出，Dispatcher是Servlet的一个实现类。也就是遵循了J2EE规范的处理器。
 
@@ -128,7 +128,7 @@ Dispatcher没有直接实现servlet，而是继承了HttpServlet。对于http请
 
 `HttpServlet.service -> FrameworkServlet.service -> FrameworkServlet.processRequest -> DispatcherServlet.doService -> DispatcherServlet.doDispatch`
 
-##Dispatcher#doDispatch
+## Dispatcher#doDispatch
 
 Dispatcher对请求进行处理在doDispatch方法里
 
@@ -175,7 +175,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 下面分别看下三个步骤的实现
 
-##获取HandlerExecutionChain
+## 获取HandlerExecutionChain
 
 ```java
 //HandlerExecutionChain mappedHandler = getHandler(processedRequest, false);
@@ -196,7 +196,7 @@ protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Ex
 
 逻辑很简单：for循环去匹配request对应的HandlerExecutionChain，其中handlerMappings被定义为List<HandlerMapping>。HandlerMapping是一个接口，继承关系如下：
 
-<img src="img/image-20191130142505374.png" alt="image-20191130142505374" style="zoom:50%;" />
+<img src="https://gitee.com/nieyunshu/picture/raw/master/img/20210619174937.png" alt="image-20191130142505374" style="zoom:50%;" />
 
 HandlerMapping的getHandler方法如下：
 
@@ -310,9 +310,9 @@ public class HandlerExecutionChain {
 
 **这里不太理解为什么同时需要interceptors 和 interceptorList，都是同样的类型。**
 
-##获取HandlerAdapter
+## 获取HandlerAdapter
 
-![image-20191130173648691](img/image-20191130173648691.png)
+![image-20191130173648691](https://gitee.com/nieyunshu/picture/raw/master/img/20210619174956.png)
 
 ```java
 public interface HandlerAdapter {
@@ -380,7 +380,7 @@ public interface HandlerMethodReturnValueHandler {
 }
 ```
 
-整体的处理流程： ![image-20191201173401005](img/image-20191201173401005.png)
+整体的处理流程： ![image-20191201173401005](https://gitee.com/nieyunshu/picture/raw/master/img/20210619175015.png)
 
 而对于@ResponseBody和@RequestBody都由RequestResponseBodyMethodProcessor统一进行处理。也就是RequestResponseBodyMethodProcessor即实现了HandlerMethodArgumentResolver 也实现了     HandlerMethodReturnValueHandler 。
 
